@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Sparkles, MapPin, Camera, Scissors, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export default function TattooBookingPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -12,7 +11,7 @@ export default function TattooBookingPage() {
   return (
     <main className="min-h-screen bg-white text-[#1a1a1a] font-sans selection:bg-[#1a1a1a] selection:text-white overflow-x-hidden">
       
-      {/* --- HERO SECTION (기존 투어 섹션처럼 배경 강조) --- */}
+      {/* --- HERO SECTION --- */}
       <section className="relative h-screen flex flex-col items-center justify-center text-center px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }} 
@@ -36,12 +35,11 @@ export default function TattooBookingPage() {
           </button>
         </motion.div>
 
-        {/* 배경: Roy의 작업 스타일과 어울리는 고화질 타투/예술적 배경 */}
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
       </section>
 
-      {/* --- CONSULTATION MODAL (기존 예약 페이지 구조) --- */}
+      {/* --- CONSULTATION MODAL --- */}
       <AnimatePresence>
         {isFormOpen && (
           <motion.div 
@@ -49,7 +47,6 @@ export default function TattooBookingPage() {
             transition={{ type: "spring", damping: 30, stiffness: 250 }}
             className="fixed inset-0 z-50 bg-[#F0F9F9] flex flex-col overflow-y-auto"
           >
-            {/* Header */}
             <div className="flex items-center justify-between p-6 bg-white border-b border-[#00d1c1]/10 sticky top-0 z-10">
               <span className="font-black text-[#00d1c1] tracking-tighter text-xl uppercase">Roy Burgos Tattoo</span>
               <button onClick={() => setIsFormOpen(false)} className="p-2 bg-gray-100 rounded-full text-gray-500 hover:bg-gray-200 transition-colors"><X size={24} /></button>
@@ -63,24 +60,21 @@ export default function TattooBookingPage() {
                     <p className="text-gray-500 font-medium text-sm">Cuéntame sobre tu próximo tatuaje</p>
                   </div>
 
-                  {/* 상담 정보 입력 카드 (기존 UI 활용) */}
                   <div className="grid grid-cols-1 gap-4">
                     <div className="bg-white p-6 rounded-[2rem] border border-[#00d1c1]/10 flex items-center justify-between shadow-sm">
                       <div className="flex items-center gap-3 font-bold"><MapPin className="text-[#00d1c1]" /><span>Zona del cuerpo</span></div>
                       <input type="text" placeholder="Ej: Antebrazo" className="bg-gray-50 px-4 py-2 rounded-xl outline-none text-right font-bold w-1/2" />
                     </div>
-
                     <div className="bg-white p-6 rounded-[2rem] border border-[#00d1c1]/10 flex items-center justify-between shadow-sm">
                       <div className="flex items-center gap-3 font-bold"><Sparkles className="text-[#00d1c1]" /><span>Tamaño (cm)</span></div>
                       <input type="text" placeholder="Ej: 10cm" className="bg-gray-50 px-4 py-2 rounded-xl outline-none text-right font-bold w-1/2" />
                     </div>
                   </div>
 
-                  {/* 메인 폼 */}
                   <div className="space-y-3 pb-20 mt-4">
                     <input type="text" placeholder="Nombre" className="w-full bg-white border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#00d1c1]/20 transition-all text-black" />
                     <input type="tel" placeholder="WhatsApp" className="w-full bg-white border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#00d1c1]/20 transition-all text-black" />
-                    <textarea placeholder="Cuéntame tu idea (estilo, elementos...)" className="w-full bg-white border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#00d1c1]/20 transition-all text-black min-h-[120px] resize-none" />
+                    <textarea placeholder="Cuéntame tu idea..." className="w-full bg-white border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#00d1c1]/20 transition-all text-black min-h-[120px] resize-none" />
                     
                     <div className="p-6 border-2 border-dashed border-[#00d1c1]/20 rounded-2xl flex flex-col items-center gap-2 cursor-pointer hover:bg-[#00d1c1]/5 transition-colors">
                       <Camera size={24} className="text-[#00d1c1]" />
@@ -96,7 +90,6 @@ export default function TattooBookingPage() {
                   </div>
                 </div>
               ) : (
-                /* --- SUCCESS STATE (상담 신청 완료) --- */
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center justify-center text-center py-20"
@@ -106,7 +99,7 @@ export default function TattooBookingPage() {
                   </div>
                   <h2 className="text-4xl font-black tracking-tighter text-[#0f3d3e] mb-4 uppercase italic">¡Recibido!</h2>
                   <p className="text-gray-500 font-medium max-w-[280px] mb-12">
-                    He recibido tu propuesta. Te contactaré por **WhatsApp** para definir los detalles y darte un presupuesto.
+                    He recibido tu propuesta. Te contactaré por **WhatsApp** pronto.
                   </p>
                   <button 
                     onClick={() => setIsFormOpen(false)}
