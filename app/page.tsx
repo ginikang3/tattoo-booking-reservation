@@ -80,7 +80,7 @@ export default function TattooBookingPage() {
           </button>
         </motion.div>
 
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550537687-c91072c4792d?auto=format&fit=crop&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=894&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-white" />
       </section>
 
