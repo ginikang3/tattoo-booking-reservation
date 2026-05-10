@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, Sparkles, MapPin, Camera, Scissors, ChevronRight, Grid, CheckCircle2, Image as ImageIcon } from "lucide-react";
+import { X, Sparkles, MapPin, Camera, Scissors, ChevronRight, Grid, CheckCircle2, Image as ImageIcon } from "lucide-react";
 
 // 국가 선택 전화번호 라이브러리 (npm install react-phone-number-input)
 import PhoneInput from 'react-phone-number-input';
@@ -38,7 +38,7 @@ export default function TattooBookingPage() {
            area.trim() !== "" && 
            size.trim() !== "" && 
            idea.trim() !== "" &&
-           image !== null; // 사진 필수 조건 추가
+           image !== null;
   }, [name, phone, area, size, idea, image]);
 
   // 이미지 업로드 핸들러
@@ -80,7 +80,7 @@ export default function TattooBookingPage() {
           </button>
         </motion.div>
 
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1550537687-c91072c4792d?auto=format&fit=crop&q=80')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-white" />
       </section>
 
@@ -98,6 +98,7 @@ export default function TattooBookingPage() {
               whileHover={{ scale: 0.98 }}
               className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-gray-100 group"
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src={item.url} 
                 alt={item.title} 
@@ -182,7 +183,6 @@ export default function TattooBookingPage() {
                       className="w-full bg-white border border-gray-100 p-5 rounded-2xl outline-none focus:ring-2 focus:ring-[#00d1c1]/20 transition-all text-black min-h-[120px] resize-none font-bold" 
                     />
                     
-                    {/* 이미지 업로드 필드 (필수) */}
                     <div 
                       onClick={() => fileInputRef.current?.click()}
                       className={`p-6 border-2 border-dashed rounded-2xl flex flex-col items-center gap-2 cursor-pointer hover:bg-[#00d1c1]/5 transition-colors relative overflow-hidden ${
@@ -191,6 +191,7 @@ export default function TattooBookingPage() {
                     >
                       {image ? (
                         <div className="flex items-center gap-3">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img src={image} alt="Reference" className="w-12 h-12 object-cover rounded-lg shadow-sm" />
                           <span className="text-[10px] font-black text-[#00d1c1] uppercase tracking-widest">Imagen adjunta</span>
                         </div>
@@ -228,8 +229,8 @@ export default function TattooBookingPage() {
                   <div className="w-24 h-24 bg-[#00d1c1] text-white rounded-full flex items-center justify-center mb-8 shadow-2xl shadow-[#00d1c1]/40">
                     <CheckCircle2 size={40} />
                   </div>
-                  <h2 className="text-4xl font-black tracking-tighter text-[#0f3d3e] mb-2 uppercase italic">¡Listo!</h2>
-                  <p className="text-gray-500 font-bold mb-8">Te contactaré por WhatsApp a la brevedad</p>
+                  <h2 className="text-4xl font-black tracking-tighter text-[#0f3d3e] mb-2 uppercase italic">¡Solicitud recibida!</h2>
+                  <p className="text-gray-500 font-bold mb-8">Me pondré en contacto contigo muy pronto.</p>
                   
                   <div className="w-full bg-white rounded-[2rem] p-8 shadow-sm border border-[#00d1c1]/10 text-left space-y-4 mb-10">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest border-b pb-2">Resumen de Cita</p>
